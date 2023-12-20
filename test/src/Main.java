@@ -26,6 +26,15 @@ public class Main {
         out.println(Parity.p(a7)); // 0
         out.println(Parity.p(a8)); // 1
 
+        tenta2023Java p2 = new tenta2023Java();
+        out.println("\n----Parity #2----");
+        out.println(p2.parity(a2)); // 1
+        out.println(p2.parity(a5)); // 3
+        out.println(p2.parity(a6)); // 1
+        out.println(p2.parity(a7)); // 0
+        out.println(p2.parity(a8)); // 1
+
+
 
     }
 
