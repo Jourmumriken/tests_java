@@ -12,7 +12,7 @@ public class Blur {
             }
         }
         // copy all the values of the new matrix into the old one. A simple
-        // assignment wont work since arrays are reference types
+        // assignment won't work since arrays are reference types
         System.arraycopy(newMatrix, 0, m, 0, m.length);
     }
 
