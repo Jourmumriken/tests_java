@@ -11,14 +11,14 @@ public class Bakslang {
             // om vi hittar en vokal eller kommer till slutet utan att se en
             // vokal så gör något
             if(isVowel(s.charAt(i)) || i == s.length() -1) {
-                // om vu just bytt två stavelser spara bara följande stavelse
+                // om vi just bytt två stavelser spara bara följande stavelse
                 // i temp och uppdatera relevanta värden
                 if(justSwitched) {
                     temp = s.substring(lastVowel+1,i+1); // [lastVowel +1, i+1)
                     justSwitched = false; // vi bytte inget
                     lastVowel = i; // vi hittade en vokal här
                 } else {
-                    // append händer i "bakvänd" ordning så att stavelser
+                    // append händer i "bakvänd" ordning så att stavelserna
                     // byter plats i resultatet
                     sb.append(s.substring(lastVowel+1,i+1));
                     sb.append(temp);
@@ -27,7 +27,7 @@ public class Bakslang {
                 }
             }
         }
-        // I slutet "tömmer" vi temp om vi inte redan gjort det
+        // I slutet appendar vi temp om vi inte redan gjort det
         if (!justSwitched) {
             sb.append(temp);
         }
@@ -38,6 +38,6 @@ public class Bakslang {
     // hjälpfunktion som vi får anta fins i uppgiften, inte relevant till
     // tentasvaret egentligen förutom att den fins
     private boolean isVowel(char c) {
-        return -1 < "aouåeiyäö".indexOf(c);
+        return -1 < "aouåeiyäöAOUÅEIYÄÖ".indexOf(c);
     }
 }
