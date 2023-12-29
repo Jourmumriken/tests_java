@@ -16,7 +16,7 @@ public class Blur {
         System.arraycopy(newMatrix, 0, m, 0, m.length);
     }
 
-    // self explanatory
+    // self-explanatory
     int sum(int[] arr) {
         int sum = 0;
         for (int i : arr) {
@@ -30,11 +30,12 @@ public class Blur {
         int counter = 0; // counter to keep track of where in the n array we are
         for (int i = x-1; i < x+2; i++) {
             for (int j = y-1; j < y+2; j++) {
+                // make sure were never outside the matrix
+                int xCord = clamp(i,0,m.length);
                 // the if statement makes sure we dont include the middle
                 // (current point that we "are on")
                 if(!(i == x && j == y)) {
                     // make sure were never outside the matrix
-                    int xCord = clamp(i,0,m.length);
                     int yCord = clamp(j,0,m[0].length);
                     // add the value to our neighbours array and post-increment
                     // our counter
