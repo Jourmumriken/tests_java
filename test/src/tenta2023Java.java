@@ -1,7 +1,7 @@
-// Hitta kompileringsfel, kommenterat ut för att kunna kompilera lol
-
 public class tenta2023Java {
-/*
+
+    // Hitta kompileringsfel, kommenterat ut för att kunna kompilera lol
+    /*
     public static int a = 1.0;
 
     public double j = 2;
@@ -24,13 +24,11 @@ public class tenta2023Java {
 
 
     int parity(final int[] arr) {
-        int curr; // redundant but helps readability
-        boolean seen;
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             int numSeen = 0;
-            curr = arr[i];
-            seen = false;
+            final int curr = arr[i];
+            boolean seen = false;
             for (int j = 0; j < i; j++) {
                 if (arr[j] == curr) {
                     seen = true;
