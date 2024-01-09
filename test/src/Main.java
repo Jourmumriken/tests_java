@@ -52,13 +52,21 @@ public class Main {
         printMatrix(m3);
 
         Bakslang bak = new Bakslang();
-        out.println("\n---Bakslang---");
+        out.println("\n---Bakslang----");
         out.println(bak.bakslang(s1));
         out.println(bak.bakslang(s2));
         out.println(bak.bakslang(s3));
 
-        out.println("\n----testing---");
-        p2.test();
+        Derive d = new Derive();
+        out.println("\n---Derive----");
+        out.println(d.derive("1"));
+        out.println(d.derive("1x^0"));
+        out.println(d.derive("1x^1"));
+        out.println(d.derive("2x^1"));
+        out.println(d.derive("1x^2"));
+        out.println(d.derive("2x^4"));
+        out.println(d.derive("3x^4 + 2x^2 + 1"));
+
     }
 
 
