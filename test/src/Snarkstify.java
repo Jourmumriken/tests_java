@@ -1,6 +1,6 @@
 import java.util.*;
 
-/*THIS DOES NOT WORK, I FORGOT == CANT BE USED ON REFERENCE TYPES*/
+/*ugly, dont look*/
 public class Snarkstify {
     private List<Customer> customers = new ArrayList<>();
     private List<Track> tracks = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Snarkstify {
 
     private boolean isPlayed(List<Played> playeds, Played p) {
         for (Played pl : playeds) {
-            if(p.getTrack() == pl.getTrack() && p.getCustomer() == pl.getCustomer()) {
+            if(p.getTrack().equals(pl.getTrack()) && p.getCustomer().equals(pl.getCustomer())) {
                 return true;
             }
         }
@@ -50,7 +50,7 @@ public class Snarkstify {
 
     private Played getPlayed(Customer c, Track t) {
         for (Played p : this.playeds) {
-            if( p.getTrack() == t && p.getCustomer() == c) {
+            if( p.getTrack().equals(t) && p.getCustomer().equals(c)) {
                 return p;
             }
         }
