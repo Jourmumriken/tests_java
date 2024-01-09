@@ -9,7 +9,6 @@ public class Derive {
             String component = components[i];
             // we dont want to do anything on an operator
             if (!isOperator(component)) {
-                // Literals become 0 when were deriving
                 if (isLiteral(component)) {
                     components[i] = "";
                     // if we remove a literal we also remove the operator
@@ -29,6 +28,7 @@ public class Derive {
         return !s.contains("x^") || s.contains("x^0");
     }
 
+    // Takes the derivative of a simple polynomial
     private String simpleDerive(String s) {
         StringBuilder sb = new StringBuilder();
         int factor = getFactor(s);
@@ -45,6 +45,7 @@ public class Derive {
         return s.equals("+") || s.equals("-");
     }
 
+    // Extracts the factor from a simple polynomial
     private int getFactor(String s) {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'x' || s.charAt(i) == '^') {
@@ -54,6 +55,7 @@ public class Derive {
         return 0;
     }
 
+    // Extracts the exponent from a simple polynomial
     private int getExponent(String s) {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '^') {
@@ -75,9 +77,8 @@ public class Derive {
             }
         }
         if (sb.isEmpty()) {
-            sb.append("\"\"");
+            sb.append("0");
         }
         return sb.toString();
     }
-
 }
