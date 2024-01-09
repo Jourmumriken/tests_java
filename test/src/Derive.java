@@ -2,14 +2,20 @@
 public class Derive {
     public String derive(String s) {
         s.toLowerCase(); // no fuckery
-        String[] components = s.split(" "); 
+        // The question says we can assume spaces between operators and terms
+        String[] components = s.split(" ");
+        // A component is either a exponential expression or an operator
         for (int i = 0; i < components.length; i++) {
             String component = components[i];
-            if (!(component.equals("+") || component.equals("-"))) {
+            // we dont want to do anything on an operator
+            if (!isOperator(component)) {
+                // Literals become 0 when were deriving
                 if (isLiteral(component)) {
                     components[i] = "";
-                    if( i > 0) {
-                        components[i-1] = "";
+                    // if we remove a literal we also remove the operator
+                    // before it
+                    if (i > 0) {
+                        components[i - 1] = "";
                     }
                 } else {
                     components[i] = simpleDerive(component);
@@ -35,6 +41,10 @@ public class Derive {
         return sb.toString();
     }
 
+    private boolean isOperator(String s) {
+        return s.equals("+") || s.equals("-");
+    }
+
     private int getFactor(String s) {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'x' || s.charAt(i) == '^') {
@@ -56,7 +66,13 @@ public class Derive {
     private String componentsToString(String[] components) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < components.length; i++) {
-            sb.append(components[i]);
+            if (isOperator(components[i])) {
+                sb.append(" ");
+                sb.append(components[i]);
+                sb.append(" ");
+            } else {
+                sb.append(components[i]);
+            }
         }
         if (sb.isEmpty()) {
             sb.append("\"\"");
