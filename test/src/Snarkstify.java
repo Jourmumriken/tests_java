@@ -1,6 +1,6 @@
 import java.util.*;
 
-// this is ugly dont look
+/*THIS DOES NOT WORK, I FORGOT == CANT BE USED ON REFERENCE TYPES*/
 public class Snarkstify {
     private List<Customer> customers = new ArrayList<>();
     private List<Track> tracks = new ArrayList<>();
