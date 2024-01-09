@@ -57,6 +57,8 @@ public class Main {
         out.println(bak.bakslang(s2));
         out.println(bak.bakslang(s3));
 
+        out.println("\n----testing---");
+        p2.test();
     }
 
 

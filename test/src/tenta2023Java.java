@@ -48,4 +48,22 @@ public class tenta2023Java {
         }
         return sum;
     }
+
+    void test() {
+        X x = new X(0);
+        x.x[0] = new X(1);
+        // Before -- Your illustration here.
+        x.x[2] = doIt(x); // Call
+        // After -- Your illustration here.
+    }
+
+    private X doIt(X x) {
+        X xx = new X(3);
+        x.x[1] = xx;
+        xx.x = x.x;
+        xx.x[2].i = 1;
+        return xx;
+    }
+
+
 }
